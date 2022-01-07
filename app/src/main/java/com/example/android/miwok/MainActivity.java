@@ -15,16 +15,42 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.android.activities.Colors;
+import com.example.android.activities.FamilyMembers;
+import com.example.android.activities.Numbers;
+import com.example.android.activities.Phrases;
+import com.example.android.miwok.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        // Set the content of the activity to use the activity_main.xml layout file
-        setContentView(R.layout.activity_main);
+        activityMainBinding.numbers.setOnClickListener(view -> {
+            Intent startNumbersActivity = new Intent(MainActivity.this, Numbers.class);
+            startActivity(startNumbersActivity);
+        });
+
+        activityMainBinding.family.setOnClickListener(view -> {
+            Intent startFamilyActivity = new Intent(MainActivity.this, FamilyMembers.class);
+            startActivity(startFamilyActivity);
+        });
+
+        activityMainBinding.colors.setOnClickListener(view -> {
+            Intent startColorsActivity = new Intent(MainActivity.this, Colors.class);
+            startActivity(startColorsActivity);
+        });
+
+        activityMainBinding.phrases.setOnClickListener(view -> {
+            Intent startFamilyActivity = new Intent(MainActivity.this, Phrases.class);
+            startActivity(startFamilyActivity);
+        });
     }
 }
