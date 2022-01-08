@@ -34,22 +34,22 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         activityMainBinding.numbers.setOnClickListener(view -> {
-            Intent startNumbersActivity = new Intent(MainActivity.this, Numbers.class);
+            Intent startNumbersActivity = new Intent(this, Numbers.class);
             startActivity(startNumbersActivity);
         });
 
         activityMainBinding.family.setOnClickListener(view -> {
-            Intent startFamilyActivity = new Intent(MainActivity.this, FamilyMembers.class);
+            Intent startFamilyActivity = new Intent(this, FamilyMembers.class);
             startActivity(startFamilyActivity);
         });
 
         activityMainBinding.colors.setOnClickListener(view -> {
-            Intent startColorsActivity = new Intent(MainActivity.this, Colors.class);
+            Intent startColorsActivity = new Intent(this, Colors.class);
             startActivity(startColorsActivity);
         });
 
         activityMainBinding.phrases.setOnClickListener(view -> {
-            Intent startFamilyActivity = new Intent(MainActivity.this, Phrases.class);
+            Intent startFamilyActivity = new Intent(this, Phrases.class);
             startActivity(startFamilyActivity);
         });
     }
