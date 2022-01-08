@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.android.miwok.R;
 
-public class FamilyMembers extends AppCompatActivity {
+public class PhrasesActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_family_members);
+		setContentView(R.layout.activity_phrases);
 	}
 }

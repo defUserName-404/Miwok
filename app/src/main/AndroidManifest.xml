@@ -9,19 +9,19 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name="com.example.android.activities.Phrases"
+			android:name="com.example.android.activities.PhrasesActivity"
 			android:exported="false"
 			android:label="Phrases" />
 		<activity
-			android:name="com.example.android.activities.Colors"
+			android:name="com.example.android.activities.ColorsActivity"
 			android:exported="false"
 			android:label="Colors" />
 		<activity
-			android:name="com.example.android.activities.FamilyMembers"
+			android:name="com.example.android.activities.FamilyMembersActivity"
 			android:exported="false"
 			android:label="Family Members" />
 		<activity
-			android:name="com.example.android.activities.Numbers"
+			android:name="com.example.android.activities.NumbersActivity"
 			android:exported="false"
 			android:label="Numbers" />
 		<activity

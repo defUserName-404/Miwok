@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.android.miwok.R;
 
-public class Colors extends AppCompatActivity {
+public class FamilyMembersActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_colors);
+		setContentView(R.layout.activity_family_members);
 	}
 }
