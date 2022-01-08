@@ -10,22 +10,25 @@
 		android:theme="@style/AppTheme">
 		<activity
 			android:name="com.example.android.activities.Phrases"
-			android:exported="false" />
+			android:exported="false"
+			android:label="Phrases" />
 		<activity
 			android:name="com.example.android.activities.Colors"
-			android:exported="false" />
+			android:exported="false"
+			android:label="Colors" />
 		<activity
 			android:name="com.example.android.activities.FamilyMembers"
-			android:exported="false" />
+			android:exported="false"
+			android:label="Family Members" />
 		<activity
 			android:name="com.example.android.activities.Numbers"
-			android:exported="false" />
+			android:exported="false"
+			android:label="Numbers" />
 		<activity
 			android:name=".MainActivity"
 			android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
-
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
