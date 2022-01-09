@@ -9,23 +9,23 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name="com.example.android.activities.PhrasesActivity"
+			android:name="com.example.android.view.PhrasesActivity"
 			android:exported="false"
 			android:label="Phrases" />
 		<activity
-			android:name="com.example.android.activities.ColorsActivity"
+			android:name="com.example.android.view.ColorsActivity"
 			android:exported="false"
 			android:label="Colors" />
 		<activity
-			android:name="com.example.android.activities.FamilyMembersActivity"
+			android:name="com.example.android.view.FamilyMembersActivity"
 			android:exported="false"
 			android:label="Family Members" />
 		<activity
-			android:name="com.example.android.activities.NumbersActivity"
+			android:name="com.example.android.view.NumbersActivity"
 			android:exported="false"
 			android:label="Numbers" />
 		<activity
-			android:name=".MainActivity"
+			android:name="com.example.android.view.MainActivity"
 			android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

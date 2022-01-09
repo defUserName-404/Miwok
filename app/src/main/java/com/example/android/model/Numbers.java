@@ -1,14 +1,7 @@
-package com.example.android;
-
-import androidx.annotation.NonNull;
+package com.example.android.model;
 
 public class Numbers {
 	private final String number, translation;
-
-	private Numbers(String number, String translation) {
-		this.number = number;
-		this.translation = translation;
-	}
 
 	public static final Numbers[] NUMBERS = {
 			new Numbers("One", "One"),
@@ -23,17 +16,16 @@ public class Numbers {
 			new Numbers("Ten", "Ten")
 	};
 
+	public Numbers(String number, String translation) {
+		this.number = number;
+		this.translation = translation;
+	}
+
 	public String getNumber() {
 		return number;
 	}
 
 	public String getTranslation() {
 		return translation;
-	}
-
-	@NonNull
-	@Override
-	public String toString() {
-		return this.number;
 	}
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +21,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.android.activities.ColorsActivity;
-import com.example.android.activities.FamilyMembersActivity;
-import com.example.android.activities.NumbersActivity;
-import com.example.android.activities.PhrasesActivity;
+import com.example.android.miwok.R;
 import com.example.android.miwok.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
