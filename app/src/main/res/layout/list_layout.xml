@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@android:id/list"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
 	<TextView
-		android:id="@+id/num"
+		android:id="@+id/number_textView"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/activity_horizontal_margin"
 		android:text="@string/textview"
 		android:textSize="20sp"
 		android:textStyle="bold">
 	</TextView>
 
 	<TextView
+		android:id="@+id/translation_textView"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/activity_horizontal_margin"
 		android:text="@string/textview">
 	</TextView>
 </LinearLayout>
