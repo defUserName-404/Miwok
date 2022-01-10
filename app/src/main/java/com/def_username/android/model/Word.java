@@ -2,6 +2,7 @@ package com.def_username.android.model;
 
 public class Word {
 	private final String defaultTranslation, miwokTranslation;
+	private final int audioResourceId;
 	private int imageResourceId = -1;
 
 	/**
@@ -9,9 +10,10 @@ public class Word {
 	 * @param defaultTranslation is the translation of the Miwok word in the default language.
 	 * @param miwokTranslation is the given word.
 	 */
-	public Word(String defaultTranslation, String miwokTranslation) {
+	public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
 		this.defaultTranslation = defaultTranslation;
 		this.miwokTranslation = miwokTranslation;
+		this.audioResourceId = audioResourceId;
 	}
 
 	/**
@@ -20,10 +22,11 @@ public class Word {
 	 * @param miwokTranslation is the given word.
 	 * @param imageResourceId is the drawable resource id of the image that needs to be displayed.
 	 */
-	public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+	public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
 		this.defaultTranslation = defaultTranslation;
 		this.miwokTranslation = miwokTranslation;
 		this.imageResourceId = imageResourceId;
+		this.audioResourceId = audioResourceId;
 	}
 
 	public String getDefaultTranslation() {
@@ -36,6 +39,10 @@ public class Word {
 
 	public int getImageResourceId() {
 		return imageResourceId;
+	}
+
+	public int getAudioResourceId() {
+		return audioResourceId;
 	}
 
 	public boolean hasImage() {

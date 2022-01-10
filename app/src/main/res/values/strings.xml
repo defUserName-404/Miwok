@@ -29,4 +29,5 @@
 	<string name="category_family">Family Members</string>
 	<string name="textview">TextView</string>
 	<string name="image">image</string>
+	<string name="play_icon">Play Icon</string>
 </resources>
