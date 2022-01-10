@@ -19,16 +19,16 @@ public class NumbersActivity extends AppCompatActivity {
 
 		// Create a list of numbers
 		ArrayList<Word> numbers = new ArrayList<>();
-		numbers.add(new Word("One", "Lutti"));
-		numbers.add(new Word("Two", "Otiiko"));
-		numbers.add(new Word("Three", "Tolookosu"));
-		numbers.add(new Word("Four", "Oyyisa"));
-		numbers.add(new Word("Five", "Massokka"));
-		numbers.add(new Word("Six", "Temmokka"));
-		numbers.add(new Word("Seven", "Kenekaku"));
-		numbers.add(new Word("Eight", "Kawinta"));
-		numbers.add(new Word("Nine", "Wo’e"));
-		numbers.add(new Word("Ten", "Na’acha"));
+		numbers.add(new Word("one", "lutti"));
+		numbers.add(new Word("two", "otiiko"));
+		numbers.add(new Word("three", "tolookosu"));
+		numbers.add(new Word("four", "oyyisa"));
+		numbers.add(new Word("five", "massokka"));
+		numbers.add(new Word("six", "temmokka"));
+		numbers.add(new Word("seven", "kenekaku"));
+		numbers.add(new Word("eight", "kawinta"));
+		numbers.add(new Word("nine", "wo’e"));
+		numbers.add(new Word("ten", "na’acha"));
 
 		// Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
 		// adapter knows how to create list items for each item in the list.
