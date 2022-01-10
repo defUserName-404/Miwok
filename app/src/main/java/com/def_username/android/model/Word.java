@@ -3,6 +3,7 @@ package com.def_username.android.model;
 public class Word {
 	private final String defaultTranslation, miwokTranslation;
 	private int imageResourceId = -1;
+
 	/**
 	 * This constructor is called only when there is no need of images with the associated word.
 	 * @param defaultTranslation is the translation of the Miwok word in the default language.
