@@ -9,24 +9,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.def_username.android.model.Word;
 import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
-	private final int color;
+	private final int colorResourceId;
 
 	/**
 	 * Create a new {@link WordAdapter} object.
 	 *
 	 * @param context is the current context (i.e. Activity) that the adapter is being created in.
 	 * @param words   is the list of {@link Word}s to be displayed.
-	 * @param color   is the color that needs too be set for the textviews' background.
+	 * @param colorResourceId   is the color that needs too be set for the textviews' background.
 	 */
-	public WordAdapter(Context context, ArrayList<Word> words, int color) {
+	public WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
 		super(context, 0, words);
-		this.color = color;
+		this.colorResourceId = colorResourceId;
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 		// find the linearlayouts that hold the two textviews
 		LinearLayout linearLayout = listItemView.findViewById(R.id.textviews);
 		// Set the color of the linear layout.
-		linearLayout.setBackgroundColor(color);
+		linearLayout.setBackgroundColor(ContextCompat.getColor(getContext(), colorResourceId));
 
 		// Find the miwok TextView in the list_layout.xml layout.
 		TextView miwokTextView = listItemView.findViewById(R.id.miwok_textview);
