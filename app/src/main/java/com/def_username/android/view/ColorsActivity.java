@@ -20,20 +20,18 @@ public class ColorsActivity extends AppCompatActivity {
 
 		// Create a list of colors
 		ArrayList<Word> colors = new ArrayList<>();
-		colors.add(new Word("red", "weṭeṭṭi"));
-		colors.add(new Word("green", "chokokki"));
-		colors.add(new Word("blue", "ṭakaakki"));
-		colors.add(new Word("black", "ṭopoppi"));
-		colors.add(new Word("white", "kululli"));
-		colors.add(new Word("yellow", "chibawa"));
-		colors.add(new Word("gray", "kelelli"));
-		colors.add(new Word("brown", "marwa'asha"));
-		colors.add(new Word("orange", "ṭopiisә"));
-		colors.add(new Word("purple", "chiwiiṭә"));
+		colors.add(new Word("red", "weṭeṭṭi", R.drawable.color_red));
+		colors.add(new Word("green", "chokokki", R.drawable.color_green));
+		colors.add(new Word("brown", "ṭakaakki", R.drawable.color_brown));
+		colors.add(new Word("black", "ṭopoppi", R.drawable.color_black));
+		colors.add(new Word("white", "kululli", R.drawable.color_white));
+		colors.add(new Word("gray", "kelelli", R.drawable.color_gray));
+		colors.add(new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow));
+		colors.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
 
 		// Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
 		// adapter knows how to create list items for each item in the list.
-		WordAdapter adapter = new WordAdapter(this, colors);
+		WordAdapter adapter = new WordAdapter(this, colors, getResources().getColor(R.color.category_colors));
 
 		// Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
 		// There should be a {@link ListView} with the view ID called list, which is declared in the

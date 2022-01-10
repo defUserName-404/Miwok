@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.def_username.android.model.Word;
@@ -12,44 +14,56 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
-public class WordAdapter extends ArrayAdapter<Word>  {
+public class WordAdapter extends ArrayAdapter<Word> {
+	private final int color;
 
 	/**
 	 * Create a new {@link WordAdapter} object.
 	 *
 	 * @param context is the current context (i.e. Activity) that the adapter is being created in.
-	 * @param words is the list of {@link Word}s to be displayed.
+	 * @param words   is the list of {@link Word}s to be displayed.
+	 * @param color   is the color that needs too be set for the textviews' background.
 	 */
-	public WordAdapter(Context context, ArrayList<Word> words) {
+	public WordAdapter(Context context, ArrayList<Word> words, int color) {
 		super(context, 0, words);
+		this.color = color;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// Check if an existing view is being reused, otherwise inflate the view
 		View listItemView = convertView;
-		if (listItemView == null) {
-			listItemView = LayoutInflater.from(getContext()).inflate(
-					R.layout.list_layout, parent, false);
-		}
+		if (listItemView == null)
+			listItemView = LayoutInflater.from
+					(getContext()).inflate(R.layout.list_layout, parent, false);
 
 		// Get the {@link Word} object located at this position in the list
-		Word currentNumber = getItem(position);
+		Word currentWord = getItem(position);
 
-		// Find the TextView in the list_item.xml layout with the ID miwok_text_view.
-		TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_textview);
-		// Get the Miwok translation from the currentNumber object and set this text on
-		// the Miwok TextView.
-		miwokTextView.setText(currentNumber.getMiwokTranslation());
+		// find the linearlayouts that hold the two textviews
+		LinearLayout linearLayout = listItemView.findViewById(R.id.textviews);
+		// Set the color of the linear layout.
+		linearLayout.setBackgroundColor(color);
 
-		// Find the TextView in the list_item.xml layout with the ID default_text_view.
-		TextView defaultTextView = (TextView) listItemView.findViewById(R.id.translation_textview);
-		// Get the default translation from the currentNumber object and set this text on
-		// the default TextView.
-		defaultTextView.setText(currentNumber.getDefaultTranslation());
+		// Find the miwok TextView in the list_layout.xml layout.
+		TextView miwokTextView = listItemView.findViewById(R.id.miwok_textview);
+		// Get the miwok translation from the currentWord object and set this text on the miwok TextView.
+		miwokTextView.setText(currentWord.getMiwokTranslation());
 
-		// Return the whole list item layout (containing 2 TextViews) so that it can be shown in
-		// the ListView.
+		// Find the translation TextView in the list_layout.xml layout.
+		TextView defaultTextView = listItemView.findViewById(R.id.translation_textview);
+		// Get the default translation from the currentWord object and set this text on the default TextView.
+		defaultTextView.setText(currentWord.getDefaultTranslation());
+
+		// Find the associated ImageView in the list_layout.xml layout.
+		ImageView imageView = listItemView.findViewById(R.id.default_imageview);
+		// Get the default image from the currentWord object and set this image on the default TextView.
+		if (currentWord.hasImage())
+			imageView.setImageResource(currentWord.getImageResourceId());
+		else
+			imageView.setVisibility(View.GONE);
+
+		// Return the whole list item layout so that it can be shown in the ListView.
 		return listItemView;
 	}
 }
