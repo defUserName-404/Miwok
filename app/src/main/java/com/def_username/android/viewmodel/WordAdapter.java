@@ -1,6 +1,7 @@
 package com.def_username.android.viewmodel;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,15 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 	private final int colorResourceId;
+	private MediaPlayer soundPlayer;
+	private ImageView playButtonIconImageView;
 
 	/**
 	 * Create a new {@link WordAdapter} object.
 	 *
-	 * @param context is the current context (i.e. Activity) that the adapter is being created in.
-	 * @param words   is the list of {@link Word}s to be displayed.
-	 * @param colorResourceId   is the color that needs too be set for the textviews' background.
+	 * @param context         is the current context (i.e. Activity) that the adapter is being created in.
+	 * @param words           is the list of {@link Word}s to be displayed.
+	 * @param colorResourceId is the color that needs too be set for the textviews' background.
 	 */
 	public WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
 		super(context, 0, words);
@@ -46,6 +49,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
 		LinearLayout linearLayout = listItemView.findViewById(R.id.textviews);
 		// Set the color of the linear layout.
 		linearLayout.setBackgroundColor(ContextCompat.getColor(getContext(), colorResourceId));
+		// find the imageview icon to update while playing the audio
+		playButtonIconImageView = listItemView.findViewById(R.id.play_icon_imageview);
+		// audio file needs to be played when the linear layout is clicked
+		linearLayout.setOnClickListener(view -> {
+			if (soundPlayer != null)
+				releaseMediaPlayer();
+
+			soundPlayer = MediaPlayer.create(linearLayout.getContext(), currentWord.getAudioResourceId());
+			soundPlayer.start();
+			playButtonIconImageView.setImageResource(R.drawable.ic_baseline_pause_24);
+
+			soundPlayer.setOnCompletionListener(listener -> {
+				releaseMediaPlayer();
+				playButtonIconImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+			});
+		});
 
 		// Find the miwok TextView in the list_layout.xml layout.
 		TextView miwokTextView = listItemView.findViewById(R.id.miwok_textview);
@@ -67,5 +86,16 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
 		// Return the whole list item layout so that it can be shown in the ListView.
 		return listItemView;
+	}
+
+	/**
+	 * Clean up the media player by releasing its resources.
+	 */
+	private void releaseMediaPlayer() {
+		// If the media player is not null, then it may be currently playing a sound.
+		if (soundPlayer != null) {
+			soundPlayer.release();
+			soundPlayer = null;
+		}
 	}
 }

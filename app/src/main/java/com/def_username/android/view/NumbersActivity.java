@@ -28,7 +28,7 @@ public class NumbersActivity extends AppCompatActivity {
 		numbers.add(new Word
 				("four", "oyyisa", R.drawable.number_four, R.raw.number_four));
 		numbers.add(new Word
-				("five", "massokka", R.drawable.number_five, R.raw.family_older_sister));
+				("five", "massokka", R.drawable.number_five, R.raw.number_five));
 		numbers.add(new Word
 				("six", "temmokka", R.drawable.number_six, R.raw.number_six));
 		numbers.add(new Word

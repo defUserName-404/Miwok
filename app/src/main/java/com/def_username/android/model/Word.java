@@ -9,6 +9,7 @@ public class Word {
 	 * This constructor is called only when there is no need of images with the associated word.
 	 * @param defaultTranslation is the translation of the Miwok word in the default language.
 	 * @param miwokTranslation is the given word.
+	 * @param audioResourceId is the audio sound for miwok pronunciation of the word
 	 */
 	public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
 		this.defaultTranslation = defaultTranslation;
@@ -21,6 +22,7 @@ public class Word {
 	 * @param defaultTranslation is the translation of the Miwok word in the default language.
 	 * @param miwokTranslation is the given word.
 	 * @param imageResourceId is the drawable resource id of the image that needs to be displayed.
+	 * @param audioResourceId is the audio sound for miwok pronunciation of the word
 	 */
 	public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
 		this.defaultTranslation = defaultTranslation;
