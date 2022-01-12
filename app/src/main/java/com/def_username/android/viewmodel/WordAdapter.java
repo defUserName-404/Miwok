@@ -12,15 +12,16 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.def_username.android.model.MediaPlayerHelper;
 import com.def_username.android.model.Word;
 import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
-	private final int colorResourceId;
-	private MediaPlayer soundPlayer;
+	private int colorResourceId;
 	private ImageView playButtonIconImageView;
+	private MediaPlayer soundPlayer;
 
 	/**
 	 * Create a new {@link WordAdapter} object.
@@ -29,9 +30,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
 	 * @param words           is the list of {@link Word}s to be displayed.
 	 * @param colorResourceId is the color that needs too be set for the textviews' background.
 	 */
+
 	public WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
 		super(context, 0, words);
 		this.colorResourceId = colorResourceId;
+	}
+
+	public WordAdapter(Context context) {
+		super(context, 0);
 	}
 
 	@Override
@@ -52,16 +58,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
 		// find the imageview icon to update while playing the audio
 		playButtonIconImageView = listItemView.findViewById(R.id.play_icon_imageview);
 		// audio file needs to be played when the linear layout is clicked
+		// TODO: Image icon for playbutton isn't changing while audio is playing
 		linearLayout.setOnClickListener(view -> {
 			if (soundPlayer != null)
-				releaseMediaPlayer();
+				soundPlayer = MediaPlayerHelper.releaseMediaPlayer(soundPlayer);
 
 			soundPlayer = MediaPlayer.create(linearLayout.getContext(), currentWord.getAudioResourceId());
 			soundPlayer.start();
 			playButtonIconImageView.setImageResource(R.drawable.ic_baseline_pause_24);
 
 			soundPlayer.setOnCompletionListener(listener -> {
-				releaseMediaPlayer();
+				soundPlayer = MediaPlayerHelper.releaseMediaPlayer(soundPlayer);
 				playButtonIconImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
 			});
 		});
@@ -86,16 +93,5 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
 		// Return the whole list item layout so that it can be shown in the ListView.
 		return listItemView;
-	}
-
-	/**
-	 * Clean up the media player by releasing its resources.
-	 */
-	private void releaseMediaPlayer() {
-		// If the media player is not null, then it may be currently playing a sound.
-		if (soundPlayer != null) {
-			soundPlayer.release();
-			soundPlayer = null;
-		}
 	}
 }
