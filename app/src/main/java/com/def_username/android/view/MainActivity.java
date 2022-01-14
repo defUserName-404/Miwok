@@ -15,39 +15,26 @@
  */
 package com.def_username.android.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+import androidx.viewpager.widget.ViewPager;
 
+import com.def_username.android.viewmodel.CategoryAdapter;
 import com.example.android.miwok.R;
-import com.example.android.miwok.databinding.ActivityMainBinding;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        activityMainBinding.numbers.setOnClickListener(view -> {
-            Intent startNumbersActivity = new Intent(this, NumbersActivity.class);
-            startActivity(startNumbersActivity);
-        });
+		ViewPager categoryViewPager = findViewById(R.id.category_viewpager);
+		CategoryAdapter categoryAdapter = new CategoryAdapter(getSupportFragmentManager());
+		categoryViewPager.setAdapter(categoryAdapter);
 
-        activityMainBinding.family.setOnClickListener(view -> {
-            Intent startFamilyActivity = new Intent(this, FamilyMembersActivity.class);
-            startActivity(startFamilyActivity);
-        });
-
-        activityMainBinding.colors.setOnClickListener(view -> {
-            Intent startColorsActivity = new Intent(this, ColorsActivity.class);
-            startActivity(startColorsActivity);
-        });
-
-        activityMainBinding.phrases.setOnClickListener(view -> {
-            Intent startFamilyActivity = new Intent(this, PhrasesActivity.class);
-            startActivity(startFamilyActivity);
-        });
-    }
+		TabLayout tabs = findViewById(R.id.tabs);
+		tabs.setupWithViewPager(categoryViewPager);
+	}
 }

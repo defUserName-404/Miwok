@@ -9,22 +9,6 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name="com.def_username.android.view.PhrasesActivity"
-			android:exported="false"
-			android:label="Phrases" />
-		<activity
-			android:name="com.def_username.android.view.ColorsActivity"
-			android:exported="false"
-			android:label="Colors" />
-		<activity
-			android:name="com.def_username.android.view.FamilyMembersActivity"
-			android:exported="false"
-			android:label="Family Members" />
-		<activity
-			android:name="com.def_username.android.view.NumbersActivity"
-			android:exported="false"
-			android:label="Numbers" />
-		<activity
 			android:name="com.def_username.android.view.MainActivity"
 			android:exported="true">
 			<intent-filter>
